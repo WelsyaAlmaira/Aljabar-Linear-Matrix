@@ -52,6 +52,26 @@ def divided(x, y):
 
     mul(x, y, len(x), len(x[0]), len(y), len(y[0]))
 
+# fungsi untuk transpose matriks
+def transpose(matrix):
+    result = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+    for r in result:
+        print(r)
+
+# fungsi untuk invers matriks
+def invers(matrix):
+    try:
+        result = np.linalg.inv(matrix)
+        for r in result:
+            print(r)
+    except np.linalg.LinAlgError:
+        print("Matrix is singular and cannot be inverted.")
+
+# fungsi untuk determinan matriks
+def determinan(matrix):
+    result = np.linalg.det(matrix)
+    print(result)
+
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
 row_matrix_2 = int(input('Input row for matrix 2: '))
@@ -83,7 +103,10 @@ while True:
     print('2. Pengurangan')
     print('3. Perkalian')
     print('4. Pembagian')
-    print('9. exit')
+    print('5. Transpose')
+    print('6. Invers')
+    print('7. Determinan')
+    print('9. Exit')
 
     opsi = int(input('input: '))
     if opsi == 1:
@@ -98,6 +121,21 @@ while True:
     elif opsi == 4:
         print('\nM1 * (M2)\'\n')
         divided(matrix_1, matrix_2)
+    elif opsi == 5:
+        print("\nTranspose M1:\n")
+        transpose(matrix_1)
+        print("\nTranspose M2:\n")
+        transpose(matrix_2)
+    elif opsi == 6:
+        print("\nInvers M1:\n")
+        invers(matrix_1)
+        print("\nInvers M2:\n")
+        invers(matrix_2)
+    elif opsi == 7:
+        print("\nDeterminan M1:\n")
+        determinan(matrix_1)
+        print("\nDeterminan M2:\n")
+        determinan(matrix_2)
     elif opsi == 9:
         exit()
     else:
