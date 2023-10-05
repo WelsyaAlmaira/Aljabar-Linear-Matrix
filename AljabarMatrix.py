@@ -5,29 +5,33 @@ import numpy as np
 
 # fungsi untuk penjumlahan matriks
 def add(x, y):
-    result = [[0, 0, 0],
-              [0, 0, 0],
-              [0, 0, 0]]
+    if row_matrix_1 == row_matrix_2 and column_matrix_1 == column_matrix_2:
+        result = [[0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0]]
 
-    for i in range(len(x)):
-        for j in range(len(x[0])):
-            result[i][j] = x[i][j] + y[i][j]
+        for i in range(len(x)):
+            for j in range(len(x[0])):
+                result[i][j] = x[i][j] + y[i][j]
 
-    for r in result:
-        print(r)
+        for r in result:
+            print(r)
+    else: print('Tidak bisa dijumlahkan karena berbeda ordo!')
 
 # fungsi untuk pengurangan matriks
 def sub(x, y):
-    result = [[0, 0, 0],
-              [0, 0, 0],
-              [0, 0, 0]]
+    if row_matrix_1 == row_matrix_2 and column_matrix_1 == column_matrix_2:
+        result = [[0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0]]
 
-    for i in range(len(x)):
-        for j in range(len(x[0])):
-            result[i][j] = x[i][j] - y[i][j]
+        for i in range(len(x)):
+            for j in range(len(x[0])):
+                result[i][j] = x[i][j] - y[i][j]
 
-    for r in result:
-        print(r)
+        for r in result:
+            print(r)
+    else: print('Tidak bisa dikurangkan karena berbeda ordo!')
 
 # fungsi untuk perkalian matriks
 def mul(x, y, row_1, col_1, row_2, col_2):
@@ -71,6 +75,28 @@ def invers(matrix):
 def determinan(matrix):
     result = np.linalg.det(matrix)
     print(result)
+    
+def kaliSkalar(x,y,nilaiSkalar):
+    result = [[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+
+    for i in range(len(x)):
+        for j in range(len(x[0])):
+                result[i][j] = x[i][j] * nilaiSkalar
+                
+    for r in result:
+        print(r)
+        
+    print(r)
+    for i in range(len(y)):
+        for j in range(len(y[0])):
+                result[i][j] = y[i][j] * nilaiSkalar
+
+    for r in result:
+        print(r)
+    x = result
+    y = result
 
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
@@ -106,6 +132,7 @@ while True:
     print('5. Transpose')
     print('6. Invers')
     print('7. Determinan')
+    print('8. Kali dengan skalar')
     print('9. Exit')
 
     opsi = int(input('input: '))
@@ -136,6 +163,10 @@ while True:
         determinan(matrix_1)
         print("\nDeterminan M2:\n")
         determinan(matrix_2)
+    elif opsi == 8:
+        nilaiSkalar=int(input('Input nilai skalar: '))
+        print("\nM1 dan M2 dikalikan dengan bilangan skalar")
+        kaliSkalar(matrix_1, matrix_2, nilaiSkalar)
     elif opsi == 9:
         exit()
     else:
