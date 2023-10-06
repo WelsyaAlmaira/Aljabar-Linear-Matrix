@@ -81,20 +81,36 @@ def kaliSkalar(matrix,nilaiSkalar):
                 
     for r in result:
         print(r)
-    matrix = result
 
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
+
+matrix_1 = []
+for i in range(row_matrix_1):
+    row = []
+    for j in range(column_matrix_1):
+        elemen = int(input(f"Masukkan nilai untuk baris {i+1}, kolom {j+1}: "))
+        row.append(elemen)
+    matrix_1.append(row)
+
 row_matrix_2 = int(input('Input row for matrix 2: '))
 column_matrix_2 = int(input('Input column for matrix 2: '))
 
-# inisialisasi matrix 1
-matrix_1 = [[random.randint(-10, 10) for x in range(
-    column_matrix_1)] for y in range(row_matrix_1)]
+matrix_2 = []
+for i in range(row_matrix_2):
+    row = []
+    for j in range(column_matrix_2):
+        elemen = int(input(f"Masukkan nilai untuk baris {i+1}, kolom {j+1}: "))
+        row.append(elemen)
+    matrix_2.append(row)
+    
+# # inisialisasi matrix 1
+# matrix_1 = [[random.randint(-10, 10) for x in range(
+#     column_matrix_1)] for y in range(row_matrix_1)]
 
-# inisialisasi matrix 2
-matrix_2 = [[random.randint(-10, 10) for x in range(
-    column_matrix_2)] for y in range(row_matrix_2)]
+# # inisialisasi matrix 2
+# matrix_2 = [[random.randint(-10, 10) for x in range(
+#     column_matrix_2)] for y in range(row_matrix_2)]
 
 while True:
     os.system('cls')
@@ -149,6 +165,7 @@ while True:
         print("\nDeterminan M2:\n")
         determinan(matrix_2)
     elif opsi == 8:
+        print('\n')
         nilaiSkalar=int(input('Input nilai skalar: '))
         print("Matriks mana yang akan dikalikan dengan {}?".format(nilaiSkalar))
         print('1. Matriks 1')
