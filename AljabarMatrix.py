@@ -72,6 +72,7 @@ def determinan(matrix):
     result = np.linalg.det(matrix)
     print(result)
     
+# fungsi untuk mengalikan matriks dengan bilangan skalar
 def kaliSkalar(matrix,nilaiSkalar):
     result = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
 
@@ -81,6 +82,17 @@ def kaliSkalar(matrix,nilaiSkalar):
                 
     for r in result:
         print(r)
+
+# fungsi untuk membuat matriks valid (baris dan kolom tidak kurang dari 1 dan tidak lebih dari 10)
+def makeValid(value):
+    if value < 1:
+        print("Karena anda meng-inputkan angka dibawah 1 maka saya mengubahnya menjadi 1")
+        value = 1
+    elif value > 10:
+        print("Karena anda meng-inputkan angka diatas 10 maka saya mengubahnya menjadi 10")
+        value = 10
+    return value
+        
 
 print(
     "=====================================================\n"
@@ -96,7 +108,9 @@ os.system('cls')
 print("                   Attention:                    \n")
 print("~~~~~~~~~~~~~~~     MATRIX 1     ~~~~~~~~~~~~~~~~~\n")
 row_matrix_1 = int(input('Input row for matrix 1: '))
+row_matrix_1 = makeValid(row_matrix_1)
 column_matrix_1 = int(input('Input column for matrix 1: '))
+column_matrix_1 = makeValid(column_matrix_1)
 
 matrix_1 = []
 for i in range(row_matrix_1):
@@ -108,7 +122,9 @@ for i in range(row_matrix_1):
 
 print("\n~~~~~~~~~~~~~~~     MATRIX 2     ~~~~~~~~~~~~~~~~~\n")
 row_matrix_2 = int(input('Input row for matrix 2: '))
+row_matrix_2 = makeValid(row_matrix_2)
 column_matrix_2 = int(input('Input column for matrix 2: '))
+column_matrix_2 = makeValid(column_matrix_2)
 
 matrix_2 = []
 for i in range(row_matrix_2):
@@ -194,8 +210,10 @@ while True:
         elif pilihan == 2:
             print("\nM2 * {}".format(nilaiSkalar))
             kaliSkalar(matrix_2, nilaiSkalar)
+        else:
+            print('Opsi tidak ada!')
     elif opsi == 9:
         exit()
     else:
-        print('minimal baca opsi')
+        print('Opsi tidak ada')
     getpass.getpass(prompt='Press any key to continue...')
