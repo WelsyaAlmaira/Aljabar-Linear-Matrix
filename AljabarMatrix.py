@@ -94,7 +94,6 @@ getpass.getpass(prompt='Press any key to continue...')
 os.system('cls')
 
 print("                   Attention:                    \n")
-print("           The Matrix values are random           \n\n")
 print("~~~~~~~~~~~~~~~     MATRIX 1     ~~~~~~~~~~~~~~~~~\n")
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
