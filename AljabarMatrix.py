@@ -82,6 +82,20 @@ def kaliSkalar(matrix,nilaiSkalar):
     for r in result:
         print(r)
 
+print(
+    "=====================================================\n"
+    "              --- PROGRAM MATRIX ---                 \n"
+    "   [a b]                                 [a b]       \n"
+    "   [c d]         Oleh Kelompok 4         [c d]       \n"
+    "                  Aljabar Linear                     \n"
+    "=====================================================\n")
+
+getpass.getpass(prompt='Press any key to continue...')
+os.system('cls')
+
+print("                   Attention:                    \n")
+print("           The Matrix values are random           \n\n")
+print("~~~~~~~~~~~~~~~     MATRIX 1     ~~~~~~~~~~~~~~~~~\n")
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
 
@@ -93,6 +107,7 @@ for i in range(row_matrix_1):
         row.append(elemen)
     matrix_1.append(row)
 
+print("\n~~~~~~~~~~~~~~~     MATRIX 2     ~~~~~~~~~~~~~~~~~\n")
 row_matrix_2 = int(input('Input row for matrix 2: '))
 column_matrix_2 = int(input('Input column for matrix 2: '))
 
@@ -114,13 +129,16 @@ for i in range(row_matrix_2):
 
 while True:
     os.system('cls')
-    print('Matrix 1:')
+
+    print("     __________")
+    print('____/ Matrix 1 \____\n')
     for r in matrix_1:
         print(r)
 
     print('\n')
 
-    print('Matrix 2:')
+    print("     __________")
+    print('____/ Matrix 2 \____\n')
     for r in matrix_2:
         print(r)
 
