@@ -6,9 +6,7 @@ import numpy as np
 # fungsi untuk penjumlahan matriks
 def add(x, y):
     if row_matrix_1 == row_matrix_2 and column_matrix_1 == column_matrix_2:
-        result = [[0, 0, 0],
-                [0, 0, 0],
-                [0, 0, 0]]
+        result = [[0 for _ in range(column_matrix_1)] for _ in range(row_matrix_1)]
 
         for i in range(len(x)):
             for j in range(len(x[0])):
@@ -21,9 +19,7 @@ def add(x, y):
 # fungsi untuk pengurangan matriks
 def sub(x, y):
     if row_matrix_1 == row_matrix_2 and column_matrix_1 == column_matrix_2:
-        result = [[0, 0, 0],
-                [0, 0, 0],
-                [0, 0, 0]]
+        result = [[0 for _ in range(column_matrix_1)] for _ in range(row_matrix_1)]
 
         for i in range(len(x)):
             for j in range(len(x[0])):
@@ -76,27 +72,16 @@ def determinan(matrix):
     result = np.linalg.det(matrix)
     print(result)
     
-def kaliSkalar(x,y,nilaiSkalar):
-    result = [[0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]]
+def kaliSkalar(matrix,nilaiSkalar):
+    result = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
 
-    for i in range(len(x)):
-        for j in range(len(x[0])):
-                result[i][j] = x[i][j] * nilaiSkalar
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+                result[i][j] = matrix[i][j] * nilaiSkalar
                 
     for r in result:
         print(r)
-        
-    print(r)
-    for i in range(len(y)):
-        for j in range(len(y[0])):
-                result[i][j] = y[i][j] * nilaiSkalar
-
-    for r in result:
-        print(r)
-    x = result
-    y = result
+    matrix = result
 
 row_matrix_1 = int(input('Input row for matrix 1: '))
 column_matrix_1 = int(input('Input column for matrix 1: '))
@@ -135,7 +120,7 @@ while True:
     print('8. Kali dengan skalar')
     print('9. Exit')
 
-    opsi = int(input('input: '))
+    opsi = int(input('Input: '))
     if opsi == 1:
         print('\nM1 + M2\n')
         add(matrix_1, matrix_2)
@@ -165,8 +150,16 @@ while True:
         determinan(matrix_2)
     elif opsi == 8:
         nilaiSkalar=int(input('Input nilai skalar: '))
-        print("\nM1 dan M2 dikalikan dengan bilangan skalar")
-        kaliSkalar(matrix_1, matrix_2, nilaiSkalar)
+        print("Matriks mana yang akan dikalikan dengan {}?".format(nilaiSkalar))
+        print('1. Matriks 1')
+        print('2. Matriks 2')
+        pilihan = int(input('Input: '))
+        if pilihan == 1:
+            print("\nM1 * {}".format(nilaiSkalar))
+            kaliSkalar(matrix_1, nilaiSkalar)
+        elif pilihan == 2:
+            print("\nM2 * {}".format(nilaiSkalar))
+            kaliSkalar(matrix_2, nilaiSkalar)
     elif opsi == 9:
         exit()
     else:
